@@ -28,7 +28,7 @@ export const metadata = {
     siteName: "Rangotsav",
     images: [
       {
-        url: "/holi-preview.jpg",
+        url: "https://rangotsav-holi.vercel.app/holi-preview.jpg",
         width: 1200,
         height: 630,
         alt: "Holi Celebration Banner",
@@ -43,7 +43,9 @@ export const metadata = {
     title: "A Special Holi Surprise For You 🌈",
     description:
       "Experience the colors of celebration in this interactive Holi surprise.",
-    images: ["/holi-preview.jpg"],
+    images: [
+      "https://rangotsav-holi.vercel.app/holi-preview.jpg",
+    ],
   },
 };
 
