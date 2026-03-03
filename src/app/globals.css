@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth font rendering */
+body {
+  margin: 0;
+  padding: 0;
+  cursor: none;
+}
+/* Animated Purple Blue Background */
+
+.animated-bg {
+  background: linear-gradient(-45deg, #1a002e, #2d0066, #001f4d, #3a0ca3);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glow Text */
+
+.glow-text {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 8px;
+  color: white;
+  text-align: center;
+  text-shadow:
+    0 0 10px #ff00ff,
+    0 0 20px #7b2cbf,
+    0 0 40px #3a0ca3;
+  animation: pulseGlow 2.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+/* Glass Button */
+
+.glass-btn {
+  margin-top: 40px;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  color: white;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 215, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px gold;
+}
+@keyframes drip {
+  0% { transform: translateY(-120%); opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { transform: translateY(120%); opacity: 0; }
+}
+
+.animate-drip {
+  animation: drip 2.5s ease-in-out forwards;
+}
+/* Floating Particle Animation */
+@keyframes floatParticle {
+  0% { transform: translateY(0px); opacity: 0.3; }
+  50% { transform: translateY(-20px); opacity: 0.7; }
+  100% { transform: translateY(0px); opacity: 0.3; }
+}
+.perspective-1000 {
+  perspective: 1000px;
+}
+.animate-float {
+  animation: floatParticle 6s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 6s ease infinite;
+}
+@keyframes cleanReveal {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
+.animate-cleanReveal {
+  animation: cleanReveal 3s ease forwards;
+}
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background-size: 200% auto;
+  animation: goldShimmer 3s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, gold, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: fadeOut 0.6s linear forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
