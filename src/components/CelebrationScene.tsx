@@ -15,11 +15,18 @@ export default function CelebrationScene({ onContinue }: Props) {
   const [openLetter, setOpenLetter] = useState(false);
   const [showFinalVideo, setShowFinalVideo] = useState(false);
   const [showFinalMessage, setShowFinalMessage] = useState(false);
+const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
     playHoli();
     return () => stopHoli();
   }, []);
+
+  useEffect(() => {
+  if (showFinalVideo) {
+    stopHoli(); // 🔥 force stop again
+  }
+}, [showFinalVideo]);
 
   return (
     <motion.div
@@ -195,15 +202,24 @@ export default function CelebrationScene({ onContinue }: Props) {
               />
             </motion.div>
 
-            <button
-              onClick={() => {
-                setShowFinalVideo(false);
-                setShowFinalMessage(true);
-              }}
-              className="absolute top-6 right-6 bg-white/20 text-white px-6 py-2 rounded-full backdrop-blur-md"
-            >
-              Exit ✕
-            </button>
+     <motion.button
+  whileHover={{ scale: 1.1 }}
+  onClick={() => {
+    setIsExiting(true);
+
+    setTimeout(() => {
+      setShowFinalVideo(false);
+      setShowEnvelope(false);
+      setOpenLetter(false);
+      setIsExiting(false);
+
+      playHoli(); // resume background music
+    }, 1000);
+  }}
+  className="absolute top-6 right-6 bg-white/20 backdrop-blur-md text-white px-6 py-2 rounded-full border border-white/30 hover:bg-white/40 transition"
+>
+  Exit ✕
+</motion.button>
           </motion.div>
         )}
       </AnimatePresence>
